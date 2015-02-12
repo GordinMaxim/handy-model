@@ -1,0 +1,94 @@
+«IMPORT org::eclipse::emf::texo::modelgenerator::modelannotations»
+«IMPORT org::eclipse::emf::texo::generator»
+
+«EXTENSION  org::eclipse::emf::texo::modelgenerator::templates::util»
+
+«DEFINE root(ModelController modelController) FOR EClassModelGenAnnotation-»
+«LET ((EPackageModelGenAnnotation)this.ownerEPackageAnnotation) AS ePackageAnnotation»
+«IF ePackageAnnotation.addRuntimeModelBehavior-»
+«FILE this.qualifiedClassName.replaceAll("\\.","/") + "Service.java"»
+«ePackageAnnotation.javaFileHeader-»
+
+«REM»service files stored in the same package as pojo files«ENDREM»
+package «ePackageAnnotation.packagePath»;
+
+import javax.jws.WebService;
+import javax.jws.WebParam;
+import java.util.List;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
+import javax.jws.soap.SOAPBinding.Use;
+
+
+/** generated web service
+* @generated
+*/
+
+@WebService(targetNamespace = "http://www.novosoft.org/LinkStorageService")
+@SOAPBinding(style=Style.RPC, use=Use.LITERAL)
+«LET (this.simpleClassName + "Service") AS className»
+«LET (toFirstLower(this.simpleClassName)) AS instance»
+public interface «className» {
+	
+	/**
+	* @generated
+	*/	
+	public List<«this.simpleClassName»> getAll();
+		
+	/**
+	* @generated
+	*/	
+	public int countAll();
+		
+	/**
+	* @generated
+	*/	
+	public List<«this.simpleClassName»> findBy(String property, Object value);
+	
+	/**
+	* @generated
+	*/	
+	public «this.simpleClassName» get(@WebParam(name="id") Object id);
+	
+	/**
+	* @generated
+	*/
+	public void insert(@WebParam(name="«instance»") «this.simpleClassName» «instance»);
+	
+	/**
+	* @generated
+	*/
+	public void remove(@WebParam(name="«instance»") «this.simpleClassName» «instance»);
+	
+	/**
+	* @generated
+	*/
+	public void removeList(@WebParam(name="«instance»s") List<«this.simpleClassName»> «instance»s);
+	
+	/**
+	* @generated
+	*/
+	public void refresh(@WebParam(name="«instance»s") «this.simpleClassName» «instance»);
+	
+	/**
+	* @generated
+	*/
+	public void update(@WebParam(name="«instance»s") «this.simpleClassName» «instance»);
+	
+«FOREACH this.EStructuralFeatureModelGenAnnotations AS featureAnnotation-»
+	«LET featureAnnotation.name AS param»
+	/**
+	* @generated
+	*/
+	public void «"update" + toFirstUpper(featureAnnotation.name)»(@WebParam(name="«param»") «featureAnnotation.type» «param»,
+																  @WebParam(name="id") Object id);
+	«ENDLET»
+«ENDFOREACH»
+}
+
+«ENDLET-»
+«ENDLET-»
+«ENDFILE-»
+«ENDIF-»
+«ENDLET»
+«ENDDEFINE»

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="properties" nsURI="http://www.novosoft.org/task/base/properties"
+    nsPrefix="properties">
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="fname"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="dname"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//OperationType">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="creationTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useInPLC" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="useInPLC"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expTheshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="expTheshold"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="expPeriod"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="priority"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actions" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="actions"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fetching" eType="#//ObjectsFetchingProperties">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="fetching"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//OperationProperties">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="operation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schedule" eType="#//ScheduleProperties">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sources" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="sources"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targets" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="targets"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="aliases"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filters" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="filters"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="events" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="events"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="version"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versioned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="versioned"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVersionsCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="maxVersionsCount"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStorageTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="maxStorageTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Log" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="filePath"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomAction" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActionType">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wait" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="wait"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" eType="#//ActionRunTime">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="event"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="params" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="params"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectsFetchingProperties" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filesExclude" eType="#//ObjectsFetchingProperties">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="filesExclude"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filesInclude" eType="#//ObjectsFetchingProperties">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="filesInclude"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foldersExcludeMasks" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="foldersExcludeMasks"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foldersIncludeMasks" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="foldersIncludeMasks"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileFilterProperties" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="attributes"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="masks" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="masks"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creation" eType="#//IntervalT">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="creation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntervalT" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower_bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="lower_bound"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper_bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="upper_bound"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationProperties" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyMode" eType="#//CopyMode">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="copyMode"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyDirection" eType="#//CopyDirection">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="copyDirection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diffCondition" eType="#//DiffCondition">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="diffCondition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopCondition" eType="#//StopCondition">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="stopCondition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkFileSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="checkFileSize"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkCreationTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="checkCreationTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkModificationTime"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="checkModificationTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScheduleProperties" eSuperTypes="http://www.novosoft.org/task/base/identifiable#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRunMissing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="isRunMissing"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ScheduleType">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="start"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="days"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="period"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationType">
+    <eLiterals name="otBackupFull"/>
+    <eLiterals name="otBackupIncremental"/>
+    <eLiterals name="otBackupDifferential"/>
+    <eLiterals name="otRestoreFull" literal=""/>
+    <eLiterals name="otRestoreIncremental"/>
+    <eLiterals name="otSynchronize"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActionType">
+    <eLiterals name="caRunProgram"/>
+    <eLiterals name="caSendEmail"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActionRunTime">
+    <eLiterals name="caOnOperationStart"/>
+    <eLiterals name="caOnOperationFinish"/>
+    <eLiterals name="caOnOperationFailure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CopyMode">
+    <eLiterals name="cmSimple"/>
+    <eLiterals name="cmCleanDestination"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CopyDirection">
+    <eLiterals name="Direct"/>
+    <eLiterals name="Reverse"/>
+    <eLiterals name="Bidirectional"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StopCondition">
+    <eLiterals name="scOnCriticalError" literal=""/>
+    <eLiterals name="scOnAnyError"/>
+    <eLiterals name="scIgnoreAllErrors"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DiffCondition">
+    <eLiterals name="dcNewer"/>
+    <eLiterals name="dcOlder"/>
+    <eLiterals name="dcSmaller"/>
+    <eLiterals name="dcLarger"/>
+    <eLiterals name="dcNever" literal=""/>
+    <eLiterals name="dcAlways"/>
+    <eLiterals name="dcChanged"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScheduleType">
+    <eLiterals name="stOneShot"/>
+    <eLiterals name="stEveryday"/>
+    <eLiterals name="stWeekDays"/>
+    <eLiterals name="stMonthDays"/>
+    <eLiterals name="stPeriod"/>
+  </eClassifiers>
+</ecore:EPackage>

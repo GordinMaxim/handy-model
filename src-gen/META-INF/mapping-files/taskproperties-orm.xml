@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ASCII"?>
+<orm:entity-mappings xmlns:orm="http://www.eclipse.org/eclipselink/xsds/persistence/orm" version="2.3">
+  <orm:persistence-unit-metadata>
+    <orm:persistence-unit-defaults>
+      <orm:delimited-identifiers/>
+    </orm:persistence-unit-defaults>
+  </orm:persistence-unit-metadata>
+  <orm:access>FIELD</orm:access>
+  <orm:entity class="org.novosoft.task.base.properties.TaskProperties" name="properties_TaskProperties">
+    <orm:attributes>
+      <orm:basic name="fname"/>
+      <orm:basic name="dname"/>
+      <orm:basic name="type">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="creationTime"/>
+      <orm:basic name="useInPLC"/>
+      <orm:basic name="expTheshold"/>
+      <orm:basic name="expPeriod"/>
+      <orm:basic name="priority"/>
+      <orm:basic name="version"/>
+      <orm:basic name="versioned"/>
+      <orm:basic name="maxVersionsCount"/>
+      <orm:basic name="maxStorageTime"/>
+      <orm:many-to-one name="fetching">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:many-to-one name="operation">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:many-to-one name="schedule">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:element-collection name="actions">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="sources">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="targets">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="aliases">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="filters">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="events">
+        <orm:collection-table/>
+      </orm:element-collection>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.ObjectsFetchingProperties" name="properties_ObjectsFetchingProperties">
+    <orm:attributes>
+      <orm:many-to-one name="filesExclude">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:many-to-one name="filesInclude">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:element-collection name="foldersExcludeMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="foldersIncludeMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.OperationProperties" name="properties_OperationProperties">
+    <orm:attributes>
+      <orm:basic name="copyMode">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="copyDirection">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="diffCondition">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="stopCondition">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="checkFileSize"/>
+      <orm:basic name="checkCreationTime"/>
+      <orm:basic name="checkModificationTime"/>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.ScheduleProperties" name="properties_ScheduleProperties">
+    <orm:attributes>
+      <orm:basic name="isRunMissing"/>
+      <orm:basic name="type">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="start"/>
+      <orm:basic name="days"/>
+      <orm:basic name="period"/>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.Log" name="properties_Log">
+    <orm:attributes>
+      <orm:basic name="filePath"/>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.CustomAction" name="properties_CustomAction">
+    <orm:attributes>
+      <orm:basic name="type">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="wait"/>
+      <orm:basic name="event">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="params"/>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.FileFilterProperties" name="properties_FileFilterProperties">
+    <orm:attributes>
+      <orm:basic name="attributes"/>
+      <orm:many-to-one name="creation">
+        <orm:cascade>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-refresh/>
+        </orm:cascade>
+      </orm:many-to-one>
+      <orm:element-collection name="masks">
+        <orm:collection-table/>
+      </orm:element-collection>
+    </orm:attributes>
+  </orm:entity>
+  <orm:entity class="org.novosoft.task.base.properties.IntervalT" name="properties_IntervalT">
+    <orm:attributes>
+      <orm:basic name="lower_bound"/>
+      <orm:basic name="upper_bound"/>
+    </orm:attributes>
+  </orm:entity>
+</orm:entity-mappings>

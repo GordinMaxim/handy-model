@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="task" nsURI="http://www.novosoft.org/task/base" nsPrefix="task">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="identifiable.ecore#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskXML" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" eType="ecore:EClass TaskProperties.ecore#//TaskProperties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="log" eType="ecore:EClass TaskProperties.ecore#//Log"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

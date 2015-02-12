@@ -1,0 +1,160 @@
+«IMPORT org::eclipse::emf::texo::modelgenerator::modelannotations»
+«IMPORT org::eclipse::emf::texo::generator»
+
+«EXTENSION  org::eclipse::emf::texo::modelgenerator::templates::util»
+
+«DEFINE root(ModelController modelController) FOR EClassModelGenAnnotation-»
+«LET ((EPackageModelGenAnnotation)this.ownerEPackageAnnotation) AS ePackageAnnotation»
+«IF ePackageAnnotation.addRuntimeModelBehavior-»
+«FILE this.qualifiedClassName.replaceAll("\\.","/") + "ServiceImpl.java"»
+«ePackageAnnotation.javaFileHeader-»
+
+«REM»service files stored in the same package as pojo files«ENDREM»
+package «ePackageAnnotation.packagePath»;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.jws.WebParam;
+import javax.jws.WebService;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.eclipse.emf.texo.server.service.ServiceModelPackageRegistry;
+import org.eclipse.emf.texo.server.store.BaseDao;
+import org.eclipse.emf.texo.server.store.DaoRegistry;
+import org.eclipse.emf.texo.server.store.EntityManagerProvider;
+import org.eclipse.persistence.config.PersistenceUnitProperties;
+import org.eclipse.persistence.jpa.PersistenceProvider;
+
+/** generated web service
+* @generated
+*/
+
+«LET (this.simpleClassName + "Service") AS serviceName»
+«LET (this.simpleClassName + "ServiceImpl") AS className»
+«LET (toFirstLower(this.simpleClassName)) AS instance»
+«LET toFirstLower(this.simpleClassName + ePackageAnnotation.daoPatternName.toFirstUpper()) AS dao»
+@WebService(endpointInterface = "«this.qualifiedClassName + "Service"»",
+            serviceName = "«serviceName»")
+public class «className» implements «serviceName» {
+«IF this.serializable-»
+	/**
+	* @generated
+	*/
+	private static final long serialVersionUID = 1L;
+«ENDIF-»
+
+	/**
+	* @generated
+	*/
+	final private «this.simpleClassName-»«ePackageAnnotation.daoPatternName.toFirstUpper()» «dao»;
+	final private EntityManager entityManager;
+	
+
+	public «className»() {
+	«LET this.simpleClassName + "ModelPackage" AS modelPackage»
+		ServiceModelPackageRegistry.getInstance().register(«modelPackage».INSTANCE);		
+		EntityManagerFactory entityManagerFactory;
+	    String persistenceUnit = "library-hsqldb";
+	    final HashMap<String, Object> properties = new HashMap<String, Object>();
+	    final ClassLoader classLoader = «modelPackage».class.getClassLoader();
+	    properties.put(PersistenceUnitProperties.CLASSLOADER, classLoader);
+	    properties.put(PersistenceUnitProperties.ECLIPSELINK_PERSISTENCE_XML, "META-INF/persistence.xml"); //$NON-NLS-1$
+	    entityManagerFactory = new PersistenceProvider().createEntityManagerFactory(persistenceUnit, properties);
+	    EntityManagerProvider.getInstance().setEntityManagerFactory(entityManagerFactory);
+		entityManager = EntityManagerProvider.getInstance().getCurrentEntityManager();
+		«dao» = DaoRegistry.getInstance().getDao(«this.daoQualifiedClassName».class);
+		«dao».setEntityManager(entityManager);
+	«ENDLET»
+	}
+	
+	/**
+	* @generated
+	*/	
+	public List<«this.simpleClassName»> getAll() {
+		return «dao».getAll();
+	}
+		
+	/**
+	* @generated
+	*/	
+	public int countAll() {
+		return «dao».countAll();
+	}
+		
+	/**
+	* @generated
+	*/	
+	public List<«this.simpleClassName»> findBy(@WebParam(name="property") String property, 
+							 				   @WebParam(name="value") Object value) {
+		return «dao».findBy(property, value);
+	}
+		
+	/**
+	* @generated
+	*/	
+	public «this.simpleClassName» get(@WebParam(name="id") Object id) {
+		return «dao».get(id);
+	}
+	
+	/**
+	* @generated
+	*/
+	public void insert(@WebParam(name="«instance»") «this.simpleClassName» «instance») {
+		«dao».insert(«instance»);
+	}
+	
+	/**
+	* @generated
+	*/
+	public void remove(@WebParam(name="«instance»") «this.simpleClassName» «instance») {
+		«dao».remove(«instance»);
+	}
+	
+	/**
+	* @generated
+	*/
+	public void removeList(@WebParam(name="«instance»s") List<«this.simpleClassName»> «instance»s) {
+		«dao».remove(«instance»s);
+	}
+	
+	/**
+	* @generated
+	*/
+	public void refresh(@WebParam(name="«instance»s") «this.simpleClassName» «instance») {
+		«dao».refresh(«instance»);
+	}
+	
+	/**
+	* @generated
+	*/
+	public void update(@WebParam(name="«instance»s") «this.simpleClassName» «instance») {
+		«dao».update(«instance»);
+	}	
+	
+«FOREACH this.EStructuralFeatureModelGenAnnotations AS featureAnnotation-»
+	«LET featureAnnotation.name AS param»
+	/**
+	* @generated
+	*/
+	public void «"update" + toFirstUpper(featureAnnotation.name)»(@WebParam(name="«param»") «featureAnnotation.type» «param», @WebParam(name="id") Object id) {
+		«this.simpleClassName» «instance» = «dao».get(id);
+		 «instance».«featureAnnotation.setter»(«param»);
+		 «dao».update(«instance»);
+	}
+	«ENDLET»
+«ENDFOREACH»
+}
+
+«ENDLET-»
+«ENDLET-»
+«ENDLET-»
+«ENDLET-»
+«ENDFILE-»
+«ENDIF-»
+«ENDLET»
+«ENDDEFINE»
