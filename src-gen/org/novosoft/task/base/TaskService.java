@@ -1,13 +1,12 @@
 package org.novosoft.task.base;
 
 import java.util.List;
+
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
-import org.novosoft.task.base.properties.Log;
-import org.novosoft.task.base.properties.TaskProperties;
 
 /**
  * generated web service
@@ -63,29 +62,6 @@ public interface TaskService {
 	 * @generated
 	 */
 	public void update(@WebParam(name = "tasks") Task task);
-
-	/**
-	 * @generated
-	 */
-	public void updateTaskXML(@WebParam(name = "taskXML") String taskXML,
-			@WebParam(name = "id") Object id);
-
-	/**
-	 * @generated
-	 */
-	public void updateProps(@WebParam(name = "props") TaskProperties props,
-			@WebParam(name = "id") Object id);
-
-	/**
-	 * @generated
-	 */
-	public void updateLog(@WebParam(name = "log") Log log,
-			@WebParam(name = "id") Object id);
-
-	/**
-	 * @generated
-	 */
-	public void updateFname(@WebParam(name = "fname") String fname,
-			@WebParam(name = "id") Object id);
-
+	
+	public List<String> getAllUserTaskIDs(/*Object uid*/);
 }

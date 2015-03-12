@@ -33,7 +33,7 @@ public enum CopyDirection {
 	 * 
 	 * @generated
 	 */
-	REVERSE(0, "Reverse", "Reverse") {
+	REVERSE(1, "Reverse", "Reverse") {
 
 		/**
 		 * @return always true for this instance
@@ -49,7 +49,7 @@ public enum CopyDirection {
 	 * 
 	 * @generated
 	 */
-	BIDIRECTIONAL(0, "Bidirectional", "Bidirectional") {
+	BIDIRECTIONAL(2, "Bidirectional", "Bidirectional") {
 
 		/**
 		 * @return always true for this instance

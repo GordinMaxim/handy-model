@@ -33,7 +33,7 @@ public enum ScheduleType {
 	 * 
 	 * @generated
 	 */
-	STEVERYDAY(0, "stEveryday", "stEveryday") {
+	STEVERYDAY(1, "stEveryday", "stEveryday") {
 
 		/**
 		 * @return always true for this instance
@@ -49,7 +49,7 @@ public enum ScheduleType {
 	 * 
 	 * @generated
 	 */
-	STWEEKDAYS(0, "stWeekDays", "stWeekDays") {
+	STWEEKDAYS(2, "stWeekDays", "stWeekDays") {
 
 		/**
 		 * @return always true for this instance
@@ -65,7 +65,7 @@ public enum ScheduleType {
 	 * 
 	 * @generated
 	 */
-	STMONTHDAYS(0, "stMonthDays", "stMonthDays") {
+	STMONTHDAYS(3, "stMonthDays", "stMonthDays") {
 
 		/**
 		 * @return always true for this instance
@@ -81,7 +81,7 @@ public enum ScheduleType {
 	 * 
 	 * @generated
 	 */
-	STPERIOD(0, "stPeriod", "stPeriod") {
+	STPERIOD(4, "stPeriod", "stPeriod") {
 
 		/**
 		 * @return always true for this instance

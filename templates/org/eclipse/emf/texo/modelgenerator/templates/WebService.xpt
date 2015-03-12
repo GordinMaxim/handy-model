@@ -74,16 +74,6 @@ public interface «className» {
 	* @generated
 	*/
 	public void update(@WebParam(name="«instance»s") «this.simpleClassName» «instance»);
-	
-«FOREACH this.EStructuralFeatureModelGenAnnotations AS featureAnnotation-»
-	«LET featureAnnotation.name AS param»
-	/**
-	* @generated
-	*/
-	public void «"update" + toFirstUpper(featureAnnotation.name)»(@WebParam(name="«param»") «featureAnnotation.type» «param»,
-																  @WebParam(name="id") Object id);
-	«ENDLET»
-«ENDFOREACH»
 }
 
 «ENDLET-»

@@ -1,16 +1,21 @@
 package org.novosoft.task.base;
 
+import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.texo.model.AbstractModelFeatureMapEntry;
+import org.eclipse.emf.texo.model.AbstractModelObject;
 import org.eclipse.emf.texo.model.ModelFactory;
 import org.eclipse.emf.texo.model.ModelFeatureMapEntry;
 import org.eclipse.emf.texo.model.ModelObject;
 import org.eclipse.emf.texo.model.ModelPackage;
-import org.novosoft.task.base.identifiable.IdentifiableModelFactory;
-import org.novosoft.task.base.properties.Log;
-import org.novosoft.task.base.properties.TaskProperties;
+import org.novosoft.task.base.properties.CopyDirection;
+import org.novosoft.task.base.properties.DiffCondition;
+import org.novosoft.task.base.properties.ErrorID;
+import org.novosoft.task.base.properties.OperationType;
+import org.novosoft.task.base.properties.ScheduleType;
+import org.novosoft.task.base.properties.StopCondition;
 
 /**
  * The <b>{@link ModelFactory}</b> for the types of this model: task. It
@@ -157,11 +162,10 @@ public class TaskModelFactory implements ModelFactory {
 	 * @generated
 	 */
 	public static class TaskModelObject<E extends Task> extends
-			IdentifiableModelFactory.IdentifiableModelObject<E> {
+			AbstractModelObject<E> {
 		/**
 		 * @generated
 		 */
-		@Override
 		public EClass eClass() {
 			return TaskModelPackage.INSTANCE.getTaskEClass();
 		}
@@ -169,7 +173,6 @@ public class TaskModelFactory implements ModelFactory {
 		/**
 		 * @generated
 		 */
-		@Override
 		public ModelPackage getModelPackage() {
 			return TaskModelPackage.INSTANCE;
 		}
@@ -181,18 +184,106 @@ public class TaskModelFactory implements ModelFactory {
 		public Object eGet(EStructuralFeature eStructuralFeature) {
 			final int featureID = eClass().getFeatureID(eStructuralFeature);
 			switch (featureID) {
-			case TaskModelPackage.TASK_DB_ID_FEATURE_ID:
-				return getTarget().getDb_Id();
-			case TaskModelPackage.TASK_DB_VERSION_FEATURE_ID:
-				return getTarget().getDb_version();
-			case TaskModelPackage.TASK_TASKXML_FEATURE_ID:
-				return getTarget().getTaskXML();
-			case TaskModelPackage.TASK_PROPS_FEATURE_ID:
-				return getTarget().getProps();
-			case TaskModelPackage.TASK_LOG_FEATURE_ID:
-				return getTarget().getLog();
-			case TaskModelPackage.TASK_FNAME_FEATURE_ID:
-				return getTarget().getFname();
+			case TaskModelPackage.TASK_TASKID_FEATURE_ID:
+				return getTarget().getTaskID();
+			case TaskModelPackage.TASK_FILENAME_FEATURE_ID:
+				return getTarget().getFileName();
+			case TaskModelPackage.TASK_DISPLAYNAME_FEATURE_ID:
+				return getTarget().getDisplayName();
+			case TaskModelPackage.TASK_ISHIDDEN_FEATURE_ID:
+				return getTarget().isIsHidden();
+			case TaskModelPackage.TASK_LASTRUNEVENT_FEATURE_ID:
+				return getTarget().getLastRunEvent();
+			case TaskModelPackage.TASK_LASTRUNERROR_FEATURE_ID:
+				return getTarget().getLastRunError();
+			case TaskModelPackage.TASK_LASTRUNSTART_FEATURE_ID:
+				return getTarget().getLastRunStart();
+			case TaskModelPackage.TASK_LASTRUNFINISH_FEATURE_ID:
+				return getTarget().getLastRunFinish();
+			case TaskModelPackage.TASK_TASKTYPE_FEATURE_ID:
+				return getTarget().getTaskType();
+			case TaskModelPackage.TASK_TASKCREATIONDATE_FEATURE_ID:
+				return getTarget().getTaskCreationDate();
+			case TaskModelPackage.TASK_USEDFORPROTECTIONCALC_FEATURE_ID:
+				return getTarget().isUsedForProtectionCalc();
+			case TaskModelPackage.TASK_BACKUPEXPIRATIONTHRESHOLD_FEATURE_ID:
+				return getTarget().getBackupExpirationThreshold();
+			case TaskModelPackage.TASK_BACKUPEXPIRATIONPERIOD_FEATURE_ID:
+				return getTarget().getBackupExpirationPeriod();
+			case TaskModelPackage.TASK_TASKPRIORITY_FEATURE_ID:
+				return getTarget().getTaskPriority();
+			case TaskModelPackage.TASK_RUNONEVENT_FEATURE_ID:
+				return getTarget().getRunOnEvent();
+			case TaskModelPackage.TASK_CURRENTBACKUPVERSION_FEATURE_ID:
+				return getTarget().getCurrentBackupVersion();
+			case TaskModelPackage.TASK_LASTFULLBACKUPVERSION_FEATURE_ID:
+				return getTarget().getLastFullBackupVersion();
+			case TaskModelPackage.TASK_USETIMESTAMPS_FEATURE_ID:
+				return getTarget().isUseTimeStamps();
+			case TaskModelPackage.TASK_USETEMPFORSZIP_FEATURE_ID:
+				return getTarget().isUseTempForSZIP();
+			case TaskModelPackage.TASK_INCREMENTVERSIONNUMBER_FEATURE_ID:
+				return getTarget().isIncrementVersionNumber();
+			case TaskModelPackage.TASK_MAXVERSIONSCOUNT_FEATURE_ID:
+				return getTarget().getMaxVersionsCount();
+			case TaskModelPackage.TASK_MAXSTORAGETIME_FEATURE_ID:
+				return getTarget().getMaxStorageTime();
+			case TaskModelPackage.TASK_BACKUPTYPE_FEATURE_ID:
+				return getTarget().getBackupType();
+			case TaskModelPackage.TASK_CLEANDESTINATION_FEATURE_ID:
+				return getTarget().isCleanDestination();
+			case TaskModelPackage.TASK_TRANSFORMATIONFILTERS_FEATURE_ID:
+				return getTarget().getTransformationFilters();
+			case TaskModelPackage.TASK_DIFFCONDITION_FEATURE_ID:
+				return getTarget().getDiffCondition();
+			case TaskModelPackage.TASK_COPYDIRECTION_FEATURE_ID:
+				return getTarget().getCopyDirection();
+			case TaskModelPackage.TASK_STOPCONDITION_FEATURE_ID:
+				return getTarget().getStopCondition();
+			case TaskModelPackage.TASK_DIFFATTRIBUTESMASK_FEATURE_ID:
+				return getTarget().getDiffAttributesMask();
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERATTRIBUTES_FEATURE_ID:
+				return getTarget().getExcludedFileFilterAttributes();
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedFileFilterMasks();
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERCREATIONMIN_FEATURE_ID:
+				return getTarget().getExcludedFileFilterCreationMin();
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERCREATIONMAX_FEATURE_ID:
+				return getTarget().getExcludedFileFilterCreationMax();
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERATTRIBUTES_FEATURE_ID:
+				return getTarget().getIncludedFileFilterAttributes();
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedFileFilterMasks();
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERCREATIONMIN_FEATURE_ID:
+				return getTarget().getIncludedFileFilterCreationMin();
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERCREATIONMAX_FEATURE_ID:
+				return getTarget().getIncludedFileFilterCreationMax();
+			case TaskModelPackage.TASK_EXCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedDirectoryFilterMasks();
+			case TaskModelPackage.TASK_INCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedDirectoryFilterMasks();
+			case TaskModelPackage.TASK_SOURCES_FEATURE_ID:
+				return getTarget().getSources();
+			case TaskModelPackage.TASK_ALIASES_FEATURE_ID:
+				return getTarget().getAliases();
+			case TaskModelPackage.TASK_TARGETS_FEATURE_ID:
+				return getTarget().getTargets();
+			case TaskModelPackage.TASK_SCHEDULETYPE_FEATURE_ID:
+				return getTarget().getScheduleType();
+			case TaskModelPackage.TASK_RUNMISSING_FEATURE_ID:
+				return getTarget().isRunMissing();
+			case TaskModelPackage.TASK_SCHEDULESTART_FEATURE_ID:
+				return getTarget().getScheduleStart();
+			case TaskModelPackage.TASK_SCHEDULEDAYS_FEATURE_ID:
+				return getTarget().getScheduleDays();
+			case TaskModelPackage.TASK_SCHEDULEPERIOD_FEATURE_ID:
+				return getTarget().getSchedulePeriod();
+			case TaskModelPackage.TASK_ACTIONS_FEATURE_ID:
+				return getTarget().getActions();
+			case TaskModelPackage.TASK_SCHEDULELASTRUNTIME_FEATURE_ID:
+				return getTarget().getScheduleLastRunTime();
+			case TaskModelPackage.TASK_SCHEDULENEXTRUNTIME_FEATURE_ID:
+				return getTarget().getScheduleNextRunTime();
 			default:
 				return super.eGet(eStructuralFeature);
 			}
@@ -201,27 +292,162 @@ public class TaskModelFactory implements ModelFactory {
 		/**
 		 * @generated
 		 */
+		@SuppressWarnings("unchecked")
 		@Override
 		public void eSet(EStructuralFeature eStructuralFeature, Object value) {
 			final int featureID = eClass().getFeatureID(eStructuralFeature);
 			switch (featureID) {
-			case TaskModelPackage.TASK_DB_ID_FEATURE_ID:
-				getTarget().setDb_Id((Long) value);
+			case TaskModelPackage.TASK_TASKID_FEATURE_ID:
+				getTarget().setTaskID((Long) value);
 				return;
-			case TaskModelPackage.TASK_DB_VERSION_FEATURE_ID:
-				getTarget().setDb_version((Integer) value);
+			case TaskModelPackage.TASK_FILENAME_FEATURE_ID:
+				getTarget().setFileName((String) value);
 				return;
-			case TaskModelPackage.TASK_TASKXML_FEATURE_ID:
-				getTarget().setTaskXML((String) value);
+			case TaskModelPackage.TASK_DISPLAYNAME_FEATURE_ID:
+				getTarget().setDisplayName((String) value);
 				return;
-			case TaskModelPackage.TASK_PROPS_FEATURE_ID:
-				getTarget().setProps((TaskProperties) value);
+			case TaskModelPackage.TASK_ISHIDDEN_FEATURE_ID:
+				getTarget().setIsHidden((Boolean) value);
 				return;
-			case TaskModelPackage.TASK_LOG_FEATURE_ID:
-				getTarget().setLog((Log) value);
+			case TaskModelPackage.TASK_LASTRUNEVENT_FEATURE_ID:
+				getTarget().setLastRunEvent((String) value);
 				return;
-			case TaskModelPackage.TASK_FNAME_FEATURE_ID:
-				getTarget().setFname((String) value);
+			case TaskModelPackage.TASK_LASTRUNERROR_FEATURE_ID:
+				getTarget().setLastRunError((ErrorID) value);
+				return;
+			case TaskModelPackage.TASK_LASTRUNSTART_FEATURE_ID:
+				getTarget().setLastRunStart((Long) value);
+				return;
+			case TaskModelPackage.TASK_LASTRUNFINISH_FEATURE_ID:
+				getTarget().setLastRunFinish((Long) value);
+				return;
+			case TaskModelPackage.TASK_TASKTYPE_FEATURE_ID:
+				getTarget().setTaskType((OperationType) value);
+				return;
+			case TaskModelPackage.TASK_TASKCREATIONDATE_FEATURE_ID:
+				getTarget().setTaskCreationDate((Long) value);
+				return;
+			case TaskModelPackage.TASK_USEDFORPROTECTIONCALC_FEATURE_ID:
+				getTarget().setUsedForProtectionCalc((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_BACKUPEXPIRATIONTHRESHOLD_FEATURE_ID:
+				getTarget().setBackupExpirationThreshold((Long) value);
+				return;
+			case TaskModelPackage.TASK_BACKUPEXPIRATIONPERIOD_FEATURE_ID:
+				getTarget().setBackupExpirationPeriod((Long) value);
+				return;
+			case TaskModelPackage.TASK_TASKPRIORITY_FEATURE_ID:
+				getTarget().setTaskPriority((Long) value);
+				return;
+			case TaskModelPackage.TASK_RUNONEVENT_FEATURE_ID:
+				getTarget().setRunOnEvent((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_CURRENTBACKUPVERSION_FEATURE_ID:
+				getTarget().setCurrentBackupVersion((Long) value);
+				return;
+			case TaskModelPackage.TASK_LASTFULLBACKUPVERSION_FEATURE_ID:
+				getTarget().setLastFullBackupVersion((Long) value);
+				return;
+			case TaskModelPackage.TASK_USETIMESTAMPS_FEATURE_ID:
+				getTarget().setUseTimeStamps((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_USETEMPFORSZIP_FEATURE_ID:
+				getTarget().setUseTempForSZIP((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_INCREMENTVERSIONNUMBER_FEATURE_ID:
+				getTarget().setIncrementVersionNumber((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_MAXVERSIONSCOUNT_FEATURE_ID:
+				getTarget().setMaxVersionsCount((Long) value);
+				return;
+			case TaskModelPackage.TASK_MAXSTORAGETIME_FEATURE_ID:
+				getTarget().setMaxStorageTime((Long) value);
+				return;
+			case TaskModelPackage.TASK_BACKUPTYPE_FEATURE_ID:
+				getTarget().setBackupType((OperationType) value);
+				return;
+			case TaskModelPackage.TASK_CLEANDESTINATION_FEATURE_ID:
+				getTarget().setCleanDestination((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_TRANSFORMATIONFILTERS_FEATURE_ID:
+				getTarget().setTransformationFilters((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_DIFFCONDITION_FEATURE_ID:
+				getTarget().setDiffCondition((DiffCondition) value);
+				return;
+			case TaskModelPackage.TASK_COPYDIRECTION_FEATURE_ID:
+				getTarget().setCopyDirection((CopyDirection) value);
+				return;
+			case TaskModelPackage.TASK_STOPCONDITION_FEATURE_ID:
+				getTarget().setStopCondition((StopCondition) value);
+				return;
+			case TaskModelPackage.TASK_DIFFATTRIBUTESMASK_FEATURE_ID:
+				getTarget().setDiffAttributesMask((Integer) value);
+				return;
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERATTRIBUTES_FEATURE_ID:
+				getTarget().setExcludedFileFilterAttributes((Integer) value);
+				return;
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				getTarget().setExcludedFileFilterMasks((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERCREATIONMIN_FEATURE_ID:
+				getTarget().setExcludedFileFilterCreationMin((Long) value);
+				return;
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERCREATIONMAX_FEATURE_ID:
+				getTarget().setExcludedFileFilterCreationMax((Long) value);
+				return;
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERATTRIBUTES_FEATURE_ID:
+				getTarget().setIncludedFileFilterAttributes((Integer) value);
+				return;
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				getTarget().setIncludedFileFilterMasks((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERCREATIONMIN_FEATURE_ID:
+				getTarget().setIncludedFileFilterCreationMin((Long) value);
+				return;
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERCREATIONMAX_FEATURE_ID:
+				getTarget().setIncludedFileFilterCreationMax((Long) value);
+				return;
+			case TaskModelPackage.TASK_EXCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				getTarget().setExcludedDirectoryFilterMasks(
+						(List<String>) value);
+				return;
+			case TaskModelPackage.TASK_INCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				getTarget().setIncludedDirectoryFilterMasks(
+						(List<String>) value);
+				return;
+			case TaskModelPackage.TASK_SOURCES_FEATURE_ID:
+				getTarget().setSources((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_ALIASES_FEATURE_ID:
+				getTarget().setAliases((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_TARGETS_FEATURE_ID:
+				getTarget().setTargets((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULETYPE_FEATURE_ID:
+				getTarget().setScheduleType((ScheduleType) value);
+				return;
+			case TaskModelPackage.TASK_RUNMISSING_FEATURE_ID:
+				getTarget().setRunMissing((Boolean) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULESTART_FEATURE_ID:
+				getTarget().setScheduleStart((Long) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULEDAYS_FEATURE_ID:
+				getTarget().setScheduleDays((Long) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULEPERIOD_FEATURE_ID:
+				getTarget().setSchedulePeriod((Long) value);
+				return;
+			case TaskModelPackage.TASK_ACTIONS_FEATURE_ID:
+				getTarget().setActions((List<String>) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULELASTRUNTIME_FEATURE_ID:
+				getTarget().setScheduleLastRunTime((Long) value);
+				return;
+			case TaskModelPackage.TASK_SCHEDULENEXTRUNTIME_FEATURE_ID:
+				getTarget().setScheduleNextRunTime((Long) value);
 				return;
 			default:
 				super.eSet(eStructuralFeature, value);
@@ -237,6 +463,41 @@ public class TaskModelFactory implements ModelFactory {
 			final int featureID = eClass().getFeatureID(eStructuralFeature);
 			switch (featureID) {
 
+			case TaskModelPackage.TASK_RUNONEVENT_FEATURE_ID:
+				return getTarget().getRunOnEvent().add((String) value);
+
+			case TaskModelPackage.TASK_TRANSFORMATIONFILTERS_FEATURE_ID:
+				return getTarget().getTransformationFilters().add(
+						(String) value);
+
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedFileFilterMasks().add(
+						(String) value);
+
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedFileFilterMasks().add(
+						(String) value);
+
+			case TaskModelPackage.TASK_EXCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedDirectoryFilterMasks().add(
+						(String) value);
+
+			case TaskModelPackage.TASK_INCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedDirectoryFilterMasks().add(
+						(String) value);
+
+			case TaskModelPackage.TASK_SOURCES_FEATURE_ID:
+				return getTarget().getSources().add((String) value);
+
+			case TaskModelPackage.TASK_ALIASES_FEATURE_ID:
+				return getTarget().getAliases().add((String) value);
+
+			case TaskModelPackage.TASK_TARGETS_FEATURE_ID:
+				return getTarget().getTargets().add((String) value);
+
+			case TaskModelPackage.TASK_ACTIONS_FEATURE_ID:
+				return getTarget().getActions().add((String) value);
+
 			default:
 				return super.eAddTo(eStructuralFeature, value);
 			}
@@ -250,6 +511,38 @@ public class TaskModelFactory implements ModelFactory {
 				Object value) {
 			final int featureID = eClass().getFeatureID(eStructuralFeature);
 			switch (featureID) {
+
+			case TaskModelPackage.TASK_RUNONEVENT_FEATURE_ID:
+				return getTarget().getRunOnEvent().remove(value);
+
+			case TaskModelPackage.TASK_TRANSFORMATIONFILTERS_FEATURE_ID:
+				return getTarget().getTransformationFilters().remove(value);
+
+			case TaskModelPackage.TASK_EXCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedFileFilterMasks().remove(value);
+
+			case TaskModelPackage.TASK_INCLUDEDFILEFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedFileFilterMasks().remove(value);
+
+			case TaskModelPackage.TASK_EXCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getExcludedDirectoryFilterMasks().remove(
+						value);
+
+			case TaskModelPackage.TASK_INCLUDEDDIRECTORYFILTERMASKS_FEATURE_ID:
+				return getTarget().getIncludedDirectoryFilterMasks().remove(
+						value);
+
+			case TaskModelPackage.TASK_SOURCES_FEATURE_ID:
+				return getTarget().getSources().remove(value);
+
+			case TaskModelPackage.TASK_ALIASES_FEATURE_ID:
+				return getTarget().getAliases().remove(value);
+
+			case TaskModelPackage.TASK_TARGETS_FEATURE_ID:
+				return getTarget().getTargets().remove(value);
+
+			case TaskModelPackage.TASK_ACTIONS_FEATURE_ID:
+				return getTarget().getActions().remove(value);
 
 			default:
 				return super.eRemoveFrom(eStructuralFeature, value);

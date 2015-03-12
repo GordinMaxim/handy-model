@@ -7,30 +7,91 @@
   </orm:persistence-unit-metadata>
   <orm:access>FIELD</orm:access>
   <orm:entity class="org.novosoft.task.base.Task" name="task_Task">
-    <orm:table name="task_Task"/>
     <orm:attributes>
-      <orm:basic name="taskXML">
-        <orm:column name="taskXML"/>
+      <orm:id name="taskID"/>
+      <orm:basic name="fileName"/>
+      <orm:basic name="displayName"/>
+      <orm:basic name="isHidden"/>
+      <orm:basic name="lastRunEvent"/>
+      <orm:basic name="lastRunError">
+        <orm:enumerated>STRING</orm:enumerated>
       </orm:basic>
-      <orm:basic name="fname">
-        <orm:column name="fname"/>
+      <orm:basic name="lastRunStart"/>
+      <orm:basic name="lastRunFinish"/>
+      <orm:basic name="taskType">
+        <orm:enumerated>STRING</orm:enumerated>
       </orm:basic>
-      <orm:many-to-one name="props">
-        <orm:join-column name="task_Task_props"/>
-        <orm:cascade>
-          <orm:cascade-persist/>
-          <orm:cascade-merge/>
-          <orm:cascade-refresh/>
-        </orm:cascade>
-      </orm:many-to-one>
-      <orm:many-to-one name="log">
-        <orm:join-column name="task_Task_log"/>
-        <orm:cascade>
-          <orm:cascade-persist/>
-          <orm:cascade-merge/>
-          <orm:cascade-refresh/>
-        </orm:cascade>
-      </orm:many-to-one>
+      <orm:basic name="taskCreationDate"/>
+      <orm:basic name="usedForProtectionCalc"/>
+      <orm:basic name="backupExpirationThreshold"/>
+      <orm:basic name="backupExpirationPeriod"/>
+      <orm:basic name="taskPriority"/>
+      <orm:basic name="currentBackupVersion"/>
+      <orm:basic name="lastFullBackupVersion"/>
+      <orm:basic name="useTimeStamps"/>
+      <orm:basic name="useTempForSZIP"/>
+      <orm:basic name="incrementVersionNumber"/>
+      <orm:basic name="maxVersionsCount"/>
+      <orm:basic name="maxStorageTime"/>
+      <orm:basic name="backupType">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="cleanDestination"/>
+      <orm:basic name="diffCondition">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="copyDirection">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="stopCondition">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="diffAttributesMask"/>
+      <orm:basic name="excludedFileFilterAttributes"/>
+      <orm:basic name="excludedFileFilterCreationMin"/>
+      <orm:basic name="excludedFileFilterCreationMax"/>
+      <orm:basic name="includedFileFilterAttributes"/>
+      <orm:basic name="includedFileFilterCreationMin"/>
+      <orm:basic name="includedFileFilterCreationMax"/>
+      <orm:basic name="scheduleType">
+        <orm:enumerated>STRING</orm:enumerated>
+      </orm:basic>
+      <orm:basic name="runMissing"/>
+      <orm:basic name="scheduleStart"/>
+      <orm:basic name="scheduleDays"/>
+      <orm:basic name="schedulePeriod"/>
+      <orm:basic name="scheduleLastRunTime"/>
+      <orm:basic name="scheduleNextRunTime"/>
+      <orm:element-collection name="runOnEvent">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="transformationFilters">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="excludedFileFilterMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="includedFileFilterMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="excludedDirectoryFilterMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="includedDirectoryFilterMasks">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="sources">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="aliases">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="targets">
+        <orm:collection-table/>
+      </orm:element-collection>
+      <orm:element-collection name="actions">
+        <orm:collection-table/>
+      </orm:element-collection>
     </orm:attributes>
   </orm:entity>
 </orm:entity-mappings>

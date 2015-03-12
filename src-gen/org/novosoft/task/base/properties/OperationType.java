@@ -34,7 +34,7 @@ public enum OperationType {
 	 * 
 	 * @generated
 	 */
-	OTBACKUPINCREMENTAL(0, "otBackupIncremental", "otBackupIncremental") {
+	OTBACKUPINCREMENTAL(1, "otBackupIncremental", "otBackupIncremental") {
 
 		/**
 		 * @return always true for this instance
@@ -51,7 +51,7 @@ public enum OperationType {
 	 * 
 	 * @generated
 	 */
-	OTBACKUPDIFFERENTIAL(0, "otBackupDifferential", "otBackupDifferential") {
+	OTBACKUPDIFFERENTIAL(2, "otBackupDifferential", "otBackupDifferential") {
 
 		/**
 		 * @return always true for this instance
@@ -67,7 +67,7 @@ public enum OperationType {
 	 * 
 	 * @generated
 	 */
-	OTRESTOREFULL(0, "otRestoreFull", "") {
+	OTRESTOREFULL(3, "otRestoreFull", "") {
 
 		/**
 		 * @return always true for this instance
@@ -84,7 +84,7 @@ public enum OperationType {
 	 * 
 	 * @generated
 	 */
-	OTRESTOREINCREMENTAL(0, "otRestoreIncremental", "otRestoreIncremental") {
+	OTRESTOREINCREMENTAL(4, "otRestoreIncremental", "otRestoreIncremental") {
 
 		/**
 		 * @return always true for this instance
@@ -100,7 +100,7 @@ public enum OperationType {
 	 * 
 	 * @generated
 	 */
-	OTSYNCHRONIZE(0, "otSynchronize", "otSynchronize") {
+	OTSYNCHRONIZE(5, "otSynchronize", "otSynchronize") {
 
 		/**
 		 * @return always true for this instance

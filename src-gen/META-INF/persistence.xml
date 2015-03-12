@@ -5,24 +5,31 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="library-hsqldb">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<mapping-file>META-INF/mapping-files/identifiable-orm.xml</mapping-file>
+		<!--  mapping-file>META-INF/mapping-files/identifiable-orm.xml</mapping-file -->
 		<mapping-file>META-INF/mapping-files/task-orm.xml</mapping-file>
 		<mapping-file>META-INF/mapping-files/taskproperties-orm.xml</mapping-file>
+		<!-- shared-cache-mode>NONE</shared-cache-mode-->
 		<properties>
             <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:library"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost:9001/xdb"/>
          	<property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
+            
+            <!-- property name="eclipselink.query-results-cache" value="false"/-->
+            <property name="eclipselink.cache.shared.default" value="false"/>
 
 			<!-- EclipseLink should create the database schema automatically -->
 
-			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
 			<property name="eclipselink.ddl-generation.output-mode" value="database" />
 			<!-- property name="eclipselink.drop-ddl-jdbc-file-name" value="library-drop.sql"/>
 			<property name="eclipselink.create-ddl-jdbc-file-name" value="library-create.sql"/>
 			<property name="eclipselink.application-location" value="ddl/"/-->
-			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.logging.level" value="SEVERE"/> 
+			<property name="eclipselink.logging.level.sql" value="FINEST"/>
+			<property name="eclipselink.logging.parameters" value="true"/>
+			<property name="jdbc.persistence.logging" value="true"/>
 		</properties>
 	</persistence-unit>
 	

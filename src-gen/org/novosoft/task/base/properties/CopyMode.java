@@ -34,7 +34,7 @@ public enum CopyMode {
 	 * 
 	 * @generated
 	 */
-	CMCLEANDESTINATION(0, "cmCleanDestination", "cmCleanDestination") {
+	CMCLEANDESTINATION(1, "cmCleanDestination", "cmCleanDestination") {
 
 		/**
 		 * @return always true for this instance

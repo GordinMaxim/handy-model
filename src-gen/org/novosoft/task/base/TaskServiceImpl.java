@@ -2,18 +2,21 @@ package org.novosoft.task.base;
 
 import java.util.HashMap;
 import java.util.List;
+
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.eclipse.emf.texo.server.service.ServiceModelPackageRegistry;
 import org.eclipse.emf.texo.server.store.DaoRegistry;
 import org.eclipse.emf.texo.server.store.EntityManagerProvider;
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.eclipse.persistence.jpa.PersistenceProvider;
 import org.novosoft.task.base.dao.TaskDao;
-import org.novosoft.task.base.properties.Log;
-import org.novosoft.task.base.properties.TaskProperties;
 
 /**
  * generated web service
@@ -49,13 +52,26 @@ public class TaskServiceImpl implements TaskService {
 				.getCurrentEntityManager();
 		taskDao = DaoRegistry.getInstance().getDao(TaskDao.class);
 		taskDao.setEntityManager(entityManager);
-
+		// Thread thread = new Thread(new Runnable() {
+		//
+		// @Override
+		// public void run() {
+		// // TODO Auto-generated method stub
+		// org.hsqldb.util.DatabaseManagerSwing.main(new String[] {
+		// "--url", "jdbc:hsqldb:mem:library", "--noexit"
+		// });
+		// }});
+		// thread.start();
+		// org.hsqldb.util.DatabaseManager.main(new String[] {
+		// "--url", "jdbc:hsqldb:hsql://localhost/library", "--noexit"
+		// });
 	}
 
 	/**
 	 * @generated
 	 */
 	public List<Task> getAll() {
+		System.out.println("[web service call] getAll");
 		return taskDao.getAll();
 	}
 
@@ -63,6 +79,7 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public int countAll() {
+		System.out.println("[web service call] countAll");
 		return taskDao.countAll();
 	}
 
@@ -71,6 +88,7 @@ public class TaskServiceImpl implements TaskService {
 	 */
 	public List<Task> findBy(@WebParam(name = "property") String property,
 			@WebParam(name = "value") Object value) {
+		System.out.println("[web service call] findBy");
 		return taskDao.findBy(property, value);
 	}
 
@@ -78,13 +96,19 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public Task get(@WebParam(name = "id") Object id) {
-		return taskDao.get(id);
+		System.out.println("[web service call] get");
+		Task task = taskDao.get(id);
+		if (null == task) {
+			task = new Task();
+		}
+		return task;
 	}
 
 	/**
 	 * @generated
 	 */
 	public void insert(@WebParam(name = "task") Task task) {
+		System.out.println("[web service call] insert");
 		taskDao.insert(task);
 	}
 
@@ -92,6 +116,8 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public void remove(@WebParam(name = "task") Task task) {
+		System.out.println("[web service call] remove");
+		task = taskDao.getEntityManager().getReference(taskDao.getEntityClass(), task.getTaskID());
 		taskDao.remove(task);
 	}
 
@@ -99,6 +125,7 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public void removeList(@WebParam(name = "tasks") List<Task> tasks) {
+		System.out.println("[web service call] removeList");
 		taskDao.remove(tasks);
 	}
 
@@ -106,6 +133,7 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public void refresh(@WebParam(name = "tasks") Task task) {
+		System.out.println("[web service call] refresh");
 		taskDao.refresh(task);
 	}
 
@@ -113,47 +141,16 @@ public class TaskServiceImpl implements TaskService {
 	 * @generated
 	 */
 	public void update(@WebParam(name = "tasks") Task task) {
+		System.out.println("[web service call] update");
 		taskDao.update(task);
 	}
-
-	/**
-	 * @generated
-	 */
-	public void updateTaskXML(@WebParam(name = "taskXML") String taskXML,
-			@WebParam(name = "id") Object id) {
-		Task task = taskDao.get(id);
-		task.setTaskXML(taskXML);
-		taskDao.update(task);
+	
+	public List<String> getAllUserTaskIDs(/*Object uid*/) {
+		EntityManager em = taskDao.getEntityManager();
+	    final CriteriaBuilder builder = em.getCriteriaBuilder();
+	    final CriteriaQuery<String> criteria = builder.createQuery(String.class);
+	    final Root<Task> root = criteria.from(Task.class);
+	    criteria.select(builder.construct(String.class, root.get("fileName")));
+	    return em.createQuery(criteria).getResultList();
 	}
-
-	/**
-	 * @generated
-	 */
-	public void updateProps(@WebParam(name = "props") TaskProperties props,
-			@WebParam(name = "id") Object id) {
-		Task task = taskDao.get(id);
-		task.setProps(props);
-		taskDao.update(task);
-	}
-
-	/**
-	 * @generated
-	 */
-	public void updateLog(@WebParam(name = "log") Log log,
-			@WebParam(name = "id") Object id) {
-		Task task = taskDao.get(id);
-		task.setLog(log);
-		taskDao.update(task);
-	}
-
-	/**
-	 * @generated
-	 */
-	public void updateFname(@WebParam(name = "fname") String fname,
-			@WebParam(name = "id") Object id) {
-		Task task = taskDao.get(id);
-		task.setFname(fname);
-		taskDao.update(task);
-	}
-
 }

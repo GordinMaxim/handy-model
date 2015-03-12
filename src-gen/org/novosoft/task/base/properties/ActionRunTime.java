@@ -35,7 +35,7 @@ public enum ActionRunTime {
 	 * 
 	 * @generated
 	 */
-	CAONOPERATIONFINISH(0, "caOnOperationFinish", "caOnOperationFinish") {
+	CAONOPERATIONFINISH(1, "caOnOperationFinish", "caOnOperationFinish") {
 
 		/**
 		 * @return always true for this instance
@@ -52,7 +52,7 @@ public enum ActionRunTime {
 	 * 
 	 * @generated
 	 */
-	CAONOPERATIONFAILURE(0, "caOnOperationFailure", "caOnOperationFailure") {
+	CAONOPERATIONFAILURE(2, "caOnOperationFailure", "caOnOperationFailure") {
 
 		/**
 		 * @return always true for this instance

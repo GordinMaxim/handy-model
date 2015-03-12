@@ -33,7 +33,7 @@ public enum StopCondition {
 	 * 
 	 * @generated
 	 */
-	SCONANYERROR(0, "scOnAnyError", "scOnAnyError") {
+	SCONANYERROR(1, "scOnAnyError", "scOnAnyError") {
 
 		/**
 		 * @return always true for this instance
@@ -49,7 +49,7 @@ public enum StopCondition {
 	 * 
 	 * @generated
 	 */
-	SCIGNOREALLERRORS(0, "scIgnoreAllErrors", "scIgnoreAllErrors") {
+	SCIGNOREALLERRORS(2, "scIgnoreAllErrors", "scIgnoreAllErrors") {
 
 		/**
 		 * @return always true for this instance

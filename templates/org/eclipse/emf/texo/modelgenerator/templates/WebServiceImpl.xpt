@@ -98,7 +98,11 @@ public class «className» implements «serviceName» {
 	* @generated
 	*/	
 	public «this.simpleClassName» get(@WebParam(name="id") Object id) {
-		return «dao».get(id);
+		«this.simpleClassName» «instance» = «dao».get(id);
+		if(null == «instance») {
+			«instance» = new «this.simpleClassName»();
+		}
+		return «instance»;
 	}
 	
 	/**
@@ -135,19 +139,6 @@ public class «className» implements «serviceName» {
 	public void update(@WebParam(name="«instance»s") «this.simpleClassName» «instance») {
 		«dao».update(«instance»);
 	}	
-	
-«FOREACH this.EStructuralFeatureModelGenAnnotations AS featureAnnotation-»
-	«LET featureAnnotation.name AS param»
-	/**
-	* @generated
-	*/
-	public void «"update" + toFirstUpper(featureAnnotation.name)»(@WebParam(name="«param»") «featureAnnotation.type» «param», @WebParam(name="id") Object id) {
-		«this.simpleClassName» «instance» = «dao».get(id);
-		 «instance».«featureAnnotation.setter»(«param»);
-		 «dao».update(«instance»);
-	}
-	«ENDLET»
-«ENDFOREACH»
 }
 
 «ENDLET-»

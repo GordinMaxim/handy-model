@@ -33,7 +33,7 @@ public enum ActionType {
 	 * 
 	 * @generated
 	 */
-	CASENDEMAIL(0, "caSendEmail", "caSendEmail") {
+	CASENDEMAIL(1, "caSendEmail", "caSendEmail") {
 
 		/**
 		 * @return always true for this instance
